@@ -1,0 +1,48 @@
+{% extends 'menu.html' %}
+{% block content %}
+    <h1>consulta de productos</h1>
+    <p></p>
+
+    <div class="row col-12 justify-content-end mb-2 pr0">
+
+    <a class="btn btn-success col-md-3" href="{% url 'registrarproducto' %}" >registrar un producto</a>
+    </div>
+    <p></p>
+            {% if mensaje %}
+
+            <div class="alert alert-success" role="alert">
+              exito en eliminar
+            </div>
+        {% endif %}
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">nombre del producto</th>
+        <th scope="col">codigo del producto</th>
+        <th scope="col">Fecha de vencimiento del producto</th>
+          <th scope="col">marca del producto</th>
+          <th scope="col">categoria del producto</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+  <tbody>
+  {% for producto in producto %}
+      <tr>
+        <th scope="row">{{ producto.id }}</th>
+        <td>{{ producto.Nombre_del_Producto }}</td>
+        <td>{{ producto.Codigo_del_Producto }}</td>
+        <td>{{ producto.Fecha_de_vencimiento }}</td>
+        <td>{{ producto.Marca }}</td>
+        <td>{{ producto.Categoria }}</td>
+      <td><a class="btn-warning" href="{% url 'Eproducto' producto.id %}">Editar</a></td>
+      <td><a class="btn-danger" href="{% url 'eliminarproducto' producto.id %}">Eliminar</a></td>
+      </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'menu.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+          Error al registrar el productop
+        </div>
+    {% endif %}
+
+    <h1>Actualizacion de registro de productos</h1>
+
+    <form action="{% url 'Actualizarproducto' producto.id %}" method="POST">
+        {% csrf_token %}
+        {% if mensaje %}
+
+            <div class="alert alert-success" role="alert">
+              exito en registrar
+            </div>
+        {% endif %}
+        {{ form | crispy }}
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a class=" btn btn-warning" href="{% url 'Cproducto' %}"> cancelar</a>
+    </form>
+
+
+{% endblock %}

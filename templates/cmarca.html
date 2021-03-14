@@ -1,0 +1,40 @@
+{% extends 'menu.html' %}
+{% block content %}
+    <h1>consulta de Marcas</h1>
+    <p></p>
+
+    <div class="row col-12 justify-content-end mb-2 pr0">
+
+    <a class="btn btn-success col-md-3" href="{% url 'registrarmarca' %}" >registrar una marca </a>
+    </div>
+    <p></p>
+            {% if mensaje %}
+
+            <div class="alert alert-success" role="alert">
+              exito en eliminar
+            </div>
+        {% endif %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre de la Marca</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+  <tbody>
+  {% for marca in marca %}
+      <tr>
+        <th scope="row">{{ marca.id }}</th>
+        <td>{{ marca.Nombre_de_la_Marca }}</td>
+
+      <td><a class="btn-warning" href="{% url 'Emarca' marca.id %}">Editar</a></td>
+      <td><a class="btn-danger" href="{% url 'eliminarmarca' marca.id %}">Eliminar</a></td>
+      </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+{% endblock %}
