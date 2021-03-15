@@ -36,7 +36,7 @@
         <td>{{ producto.Codigo_del_Producto }}</td>
         <td>{{ producto.Fecha_de_vencimiento }}</td>
         <td>{{ producto.Marca }}</td>
-        <td>{{ producto.Categoria }}</td>
+        <td>{{ producto.Categoria  }}</td>
       <td><a class="btn-warning" href="{% url 'Eproducto' producto.id %}">Editar</a></td>
       <td><a class="btn-danger" href="{% url 'eliminarproducto' producto.id %}">Eliminar</a></td>
       </tr>
